@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escola de Cursos</title>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #00264d;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 1.5rem; /* Reduzi o tamanho da fonte do título */
+            font-weight: bold;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Menu desktop */
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .navbar ul li {
+            font-size: 1.1rem;
+            color: #fff;
+        }
+
+        .navbar ul li a {
+            color: #fff;
+        }
+
+        .navbar ul li a:hover {
+            color: #FFD700;
+        }
+
+        /* Menu mobile */
+        .navbar ul.mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .navbar .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            color: #FFD700;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Banner */
+        .banner {
+            background: linear-gradient(135deg, #00264d 40%, #004080);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('wallpaperT.jpg') no-repeat center/cover;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        .banner h1 {
+            font-size: 3rem;
+            z-index: 1;
+            position: relative;
+        }
+
+        .banner p {
+            margin-top: 1rem;
+            font-size: 1.3rem;
+            z-index: 1;
+            position: relative;
+        }
+
+        .banner .btn {
+            margin-top: 2rem;
+            background-color: #FFD700;
+            color: #00264d;
+            padding: 0.8rem 1.8rem;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: transform 0.3s, background-color 0.3s;
+            z-index: 1;
+            position: relative;
+        }
+
+        .banner .btn:hover {
+            background-color: #e6c300;
+            transform: scale(1.1);
+        }
+
+        /* Seções */
+        .section {
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            font-size: 2.2rem;
+            color: #00264d;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section h2::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: #FFD700;
+            margin: 0.5rem auto 0;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            margin-top: 1rem;
+        }
+
+        /* Localização */
+        iframe {
+            margin-top: 1.5rem;
+            border-radius: 10px;
+            border: 2px solid #00264d;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #00264d;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            margin-top: 2rem;
+            border-top: 5px solid #FFD700;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .navbar ul {
+                display: none; /* Esconde o menu para dispositivos móveis */
+            }
+
+            .navbar ul.mobile-menu {
+                display: block; /* Exibe o menu móvel */
+            }
+
+            .navbar .menu-toggle {
+                display: block; /* Exibe o ícone de hamburger */
+            }
+
+            .banner h1 {
+                font-size: 2rem;
+            }
+
+            .banner p {
+                font-size: 1.1rem;
+            }
+
+            .section h2 {
+                font-size: 1.8rem;
+            }
+
+            .section p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">Instituto de Treinamento Ministerial</div>
+        <ul class="mobile-menu">
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="cursos.html">Cursos</a></li>
+        </ul>
+        <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
+        <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="cursos.html">Cursos</a></li>
+        </ul>
+    </nav>
+
+    <!-- Banner -->
+    <section class="banner" id="inicio">
+        <h1>Bem-vindo ao ITM</h1>
+        <p>Transforme seu futuro com nossos treinamentos de qualidade!</p>
+        <button class="btn" onclick="window.location.href='cursos.html'">Ver Cursos</button>
+    </section>
+
+    <!-- Seção Quem Somos -->
+    <section class="section quem-somos">
+        <h2>Quem Somos</h2>
+        <p>O ITM - Instituto de Treinamento Ministerial, tem por objetivo promover o conhecimento bíblico e teológico, assim como o treinamento para lideranças, para a evangelização e para o exercício do ministério cristão.</p>
+    </section>
+
+    <!-- Seção Localização -->
+    <section class="section localizacao">
+        <h2>Localização</h2>
+        <p>Estamos localizados na Assembléia de Deus em Pinhalzinho - SC. Venha nos visitar!</p>
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.8354345082117!2d144.9559292153205!3d-37.81720957975127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0x5045675218ce740!2sMelbourne%20CBD!5e0!3m2!1sen!2sau!4v1680086892008!5m2!1sen!2sau" 
+            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2024 ITM. Todos os direitos reservados.</p>
+        <p>Desenvolvido por João Arthur Allen</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.querySelector('.navbar ul.mobile-menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+
+</body>
+</html>
