@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cursos - Escola de Cursos</title>
     <style>
-        /* Reset básico */a
+        /* Reset básico */
         * {
             margin: 0;
             padding: 0;
@@ -52,7 +52,7 @@
         }
 
         .navbar ul li {
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: #fff;
         }
 
@@ -68,13 +68,13 @@
         .navbar ul.mobile-menu {
             display: none;
             flex-direction: column;
-            gap: 0.8rem;
+            gap: 1rem;
             text-align: center;
             padding: 1rem 0;
         }
 
         .navbar .menu-toggle {
-            display: none; /* Inicialmente escondido */
+            display: none;
             font-size: 1.8rem;
             color: #FFD700;
             background: none;
@@ -105,7 +105,7 @@
         }
 
         .banner h1 {
-            font-size: 2.2rem;
+            font-size: 2.2rem; /* Diminuí o tamanho do título para não conflitar */
             z-index: 1;
             position: relative;
         }
@@ -139,10 +139,10 @@
         /* Seção de cursos */
         .cursos {
             display: flex;
-            justify-content: center;
+            justify-content: center; /* Alinha os cursos no centro */
             gap: 2rem;
             padding: 3rem 2rem;
-            flex-wrap: wrap;
+            flex-wrap: wrap; /* Permite a quebra de linha se necessário */
         }
 
         .curso {
@@ -151,27 +151,27 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
             padding: 1.5rem;
-            width: 45%;
-            max-width: 320px;
-            margin-bottom: 2rem;
+            width: 45%; /* Ajuste para ter 2 cursos lado a lado com espaçamento */
+            max-width: 320px; /* Limita a largura */
+            margin-bottom: 2rem; /* Adiciona margem entre os cursos */
         }
 
         .curso img {
             width: 100%;
             height: auto;
             border-radius: 5px;
-            max-height: 200px;
+            max-height: 200px; /* Ajustei para não ficar tão grande */
         }
 
         .curso h3 {
             margin-top: 1rem;
-            font-size: 1.3rem;
+            font-size: 1.3rem; /* Diminuí o tamanho */
             color: #00264d;
         }
 
         .curso p {
             margin-top: 0.5rem;
-            font-size: 1rem;
+            font-size: 1rem; /* Tamanho de texto reduzido */
         }
 
         .curso .btn-inscrever {
@@ -208,33 +208,35 @@
         /* Responsividade */
         @media (max-width: 768px) {
             .navbar ul {
-                display: none;
+                display: none; /* Esconde o menu para dispositivos móveis */
             }
 
             .navbar ul.mobile-menu {
-                display: none; /* Inicialmente escondido */
+                display: none; /* Exibe o menu móvel */
                 position: absolute;
                 top: 60px;
-                left: 0;
                 right: 0;
+                left: 0;
                 background-color: #00264d;
-                flex-direction: column;
-                align-items: center;
+                border-top: 1px solid #FFD700;
                 z-index: 1;
-                padding: 1rem 0;
             }
 
             .navbar .menu-toggle {
-                display: block;
-            }
-
-            .navbar .menu-toggle.active + .mobile-menu {
-                display: flex;
+                display: block; /* Exibe o ícone de hamburger */
             }
 
             .navbar ul.mobile-menu li {
-                padding: 0.8rem;
-                font-size: 0.9rem;
+                padding: 1rem 0;
+            }
+
+            .navbar .menu-toggle.active + ul.mobile-menu {
+                display: flex; /* Exibe o menu móvel quando o botão for clicado */
+            }
+
+            .navbar ul li a {
+                padding: 0.5rem;
+                font-size: 1.2rem;
             }
 
             .banner h1 {
@@ -253,13 +255,14 @@
                 font-size: 1rem;
             }
 
+            /* Ajustes de layout para a seção de cursos */
             .cursos {
-                flex-direction: column;
+                flex-direction: column; /* Exibe os cursos em uma coluna no celular */
                 gap: 1.5rem;
             }
 
             .curso {
-                width: 100%;
+                width: 100%; /* Para que ocupe toda a largura do celular */
             }
 
             .curso h3 {
