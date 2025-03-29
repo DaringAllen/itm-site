@@ -1,1 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos - Escola de Cursos</title>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #00264d;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Menu desktop */
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .navbar ul li {
+            font-size: 1rem;
+            color: #fff;
+        }
+
+        .navbar ul li a {
+            color: #fff;
+        }
+
+        .navbar ul li a:hover {
+            color: #FFD700;
+        }
+
+        /* Menu mobile */
+        .navbar ul.mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 0.8rem;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        .navbar .menu-toggle {
+            display: none; /* Inicialmente escondido */
+            font-size: 1.8rem;
+            color: #FFD700;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Banner */
+        .banner {
+            background: linear-gradient(135deg, #00264d 40%, #004080);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('wallpaperT.jpg') no-repeat center/cover;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        .banner h1 {
+            font-size: 2.2rem;
+            z-index: 1;
+            position: relative;
+        }
+
+        .banner p {
+            margin-top: 1rem;
+            font-size: 1.3rem;
+            z-index: 1;
+            position: relative;
+        }
+
+        .banner .btn {
+            margin-top: 2rem;
+            background-color: #FFD700;
+            color: #00264d;
+            padding: 0.8rem 1.8rem;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: transform 0.3s, background-color 0.3s;
+            z-index: 1;
+            position: relative;
+        }
+
+        .banner .btn:hover {
+            background-color: #e6c300;
+            transform: scale(1.1);
+        }
+
+        /* Seção de cursos */
+        .cursos {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 3rem 2rem;
+            flex-wrap: wrap;
+        }
+
+        .curso {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 1.5rem;
+            width: 45%;
+            max-width: 320px;
+            margin-bottom: 2rem;
+        }
+
+        .curso img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            max-height: 200px;
+        }
+
+        .curso h3 {
+            margin-top: 1rem;
+            font-size: 1.3rem;
+            color: #00264d;
+        }
+
+        .curso p {
+            margin-top: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .curso .btn-inscrever {
+            margin-top: 1.5rem;
+            background-color: #FFD700;
+            color: #00264d;
+            padding: 0.8rem 1.8rem;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .curso .btn-inscrever:hover {
+            background-color: #e6c300;
+            transform: scale(1.1);
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #00264d;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            margin-top: 2rem;
+            border-top: 5px solid #FFD700;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .navbar ul {
+                display: none;
+            }
+
+            .navbar ul.mobile-menu {
+                display: none; /* Inicialmente escondido */
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background-color: #00264d;
+                flex-direction: column;
+                align-items: center;
+                z-index: 1;
+                padding: 1rem 0;
+            }
+
+            .navbar .menu-toggle {
+                display: block;
+            }
+
+            .navbar .menu-toggle.active + .mobile-menu {
+                display: flex;
+            }
+
+            .navbar ul.mobile-menu li {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .banner h1 {
+                font-size: 1.8rem;
+            }
+
+            .banner p {
+                font-size: 1.1rem;
+            }
+
+            .section h2 {
+                font-size: 1.8rem;
+            }
+
+            .section p {
+                font-size: 1rem;
+            }
+
+            .cursos {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .curso {
+                width: 100%;
+            }
+
+            .curso h3 {
+                font-size: 1.2rem;
+            }
+
+            .curso p {
+                font-size: 1rem;
+            }
+
+            .curso .btn-inscrever {
+                font-size: 0.9rem;
+                padding: 0.6rem 1.4rem;
+            }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">ITM</div>
+        <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
+        <ul class="mobile-menu">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="cursos.html">Cursos</a></li>
+        </ul>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="cursos.html">Cursos</a></li>
+        </ul>
+    </nav>
+
+    <!-- Banner -->
+    <section class="banner" id="inicio">
+        <h1>Explore Nossos Cursos</h1>
+        <p>Invista em sua carreira com nossos treinamentos de qualidade.</p>
+    </section>
+
+    <!-- Seção Cursos -->
+    <section class="cursos">
+        <div class="curso">
+            <img src="medio.jpg" alt="Curso 1">
+            <h3>Curso Bacharel livre em Teologia</h3>
+            <p>descrição em breve.</p>
+            <button class="btn-inscrever" onclick="window.location.href='https://wa.me/5547999876200?text=Ol%C3%A1%20Pastor,%20gostaria%20de%20receber%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20processo%20de%20inscri%C3%A7%C3%A3o%20no%20curso%20de%20Bacharel%20Livre%20do%20Curso%20ITM%20da%20Assembleia%20de%20Deus%20de%20Pinhalzinho-SC.
+'">Inscreva-se</button>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy;2025 ITM. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Função para alternar o menu mobile
+        function toggleMenu() {
+            const menu = document.querySelector('.navbar .menu-toggle');
+            const mobileMenu = document.querySelector('.navbar .mobile-menu');
+            menu.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>
 
